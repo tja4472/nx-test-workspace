@@ -25,7 +25,10 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator",
     "dep-graph": "nx dep-graph",
-    "help": "nx help"
+    "help": "nx help",
+    "npm run firebase -- --version": "",
+    "firebase": "firebase",
+    "emulators:start-demo": "firebase emulators:start --project demo-1"
   },
   "private": true,
   "dependencies": {
@@ -66,6 +69,7 @@
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
+    "firebase-tools": "9.16.0",
     "jest": "27.0.3",
     "jest-preset-angular": "9.0.4",
     "prettier": "^2.3.1",
