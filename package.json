@@ -4,7 +4,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/tja4472/nx-test-workspace"
-  },  
+  },
   "license": "MIT",
   "scripts": {
     "ng": "nx",
@@ -32,7 +32,12 @@
     "help": "nx help",
     "npm run firebase -- --version": "",
     "firebase": "firebase",
-    "emulators:start-demo": "firebase emulators:start --project demo-1"
+    "emulators:start-demo": "firebase emulators:start --project demo-1",
+    "### my-angular-app:start ###": "",
+    "my-angular-app:start": "ng serve my-angular-app",
+    "my-angular-app:start:emulator-demo": "npm run my-angular-app:start --  --configuration=emulator-demo",
+    "my-angular-app:start:emulator-real": "npm run my-angular-app:start --  --configuration=emulator-real",
+    "my-angular-app:start:production": "npm run my-angular-app:start --  --configuration=production"
   },
   "private": true,
   "dependencies": {
@@ -40,11 +45,13 @@
     "@angular/common": "^12.1.0",
     "@angular/compiler": "^12.1.0",
     "@angular/core": "^12.1.0",
+    "@angular/fire": "6.1.5",
     "@angular/forms": "^12.1.0",
     "@angular/platform-browser": "^12.1.0",
     "@angular/platform-browser-dynamic": "^12.1.0",
     "@angular/router": "^12.1.0",
     "@nrwl/angular": "12.6.5",
+    "firebase": "8.9.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

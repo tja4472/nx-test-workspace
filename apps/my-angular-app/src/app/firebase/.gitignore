@@ -1,0 +1,8 @@
+# Ignore all files and folders except .gitignore
+*
+*/
+!.gitignore
+
+!app-firebase.module.ts
+!firebase-config-emulator-demo.ts
+!firebase-config-interface.ts

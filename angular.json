@@ -52,6 +52,22 @@
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
+            },
+            "emulator-demo": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/my-angular-app/src/environments/environment.ts",
+                  "with": "apps/my-angular-app/src/environments/environment.emulator-demo.ts"
+                }
+              ]
+            },
+            "emulator-real": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/my-angular-app/src/environments/environment.ts",
+                  "with": "apps/my-angular-app/src/environments/environment.emulator-real.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -64,6 +80,12 @@
             },
             "development": {
               "browserTarget": "my-angular-app:build:development"
+            },
+            "emulator-demo": {
+              "browserTarget": "my-angular-app:build:emulator-demo"
+            },
+            "emulator-real": {
+              "browserTarget": "my-angular-app:build:emulator-real"
             }
           },
           "defaultConfiguration": "development"
