@@ -1,6 +1,31 @@
 {
   "version": 1,
   "projects": {
+    "app-firebase": {
+      "projectType": "library",
+      "root": "libs/app-firebase",
+      "sourceRoot": "libs/app-firebase/src",
+      "prefix": "nx-test-workspace",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/app-firebase"],
+          "options": {
+            "jestConfig": "libs/app-firebase/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/app-firebase/src/**/*.ts",
+              "libs/app-firebase/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "my-angular-app": {
       "projectType": "application",
       "root": "apps/my-angular-app",

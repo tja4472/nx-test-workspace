@@ -9,7 +9,7 @@ import {
   USE_EMULATOR as USE_FIRESTORE_EMULATOR,
 } from '@angular/fire/firestore';
 
-import { environment } from '../../environments/environment';
+import { environment } from '../environments/environment';
 
 // experimentalForceLongPolling required for Cypress testing.
 // Cannot connect to Firestore emulator

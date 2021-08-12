@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "cd ../../ && npm run ng serve my-angular-app",
+    "start:emulator-demo": "npm start -- -- --configuration emulator-demo",
+    "start:emulator-real": "npm start -- -- --configuration emulator-real",
+    "start:production": "npm start -- -- --configuration production"
+  }
+}

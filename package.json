@@ -32,12 +32,7 @@
     "help": "nx help",
     "npm run firebase -- --version": "",
     "firebase": "firebase",
-    "emulators:start-demo": "firebase emulators:start --project demo-1",
-    "### my-angular-app:start ###": "",
-    "my-angular-app:start": "ng serve my-angular-app",
-    "my-angular-app:start:emulator-demo": "npm run my-angular-app:start --  --configuration=emulator-demo",
-    "my-angular-app:start:emulator-real": "npm run my-angular-app:start --  --configuration=emulator-real",
-    "my-angular-app:start:production": "npm run my-angular-app:start --  --configuration=production"
+    "emulators:start-demo": "firebase emulators:start --project demo-1"
   },
   "private": true,
   "dependencies": {

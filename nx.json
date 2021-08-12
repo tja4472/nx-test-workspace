@@ -27,6 +27,9 @@
     ]
   },
   "projects": {
+    "app-firebase": {
+      "tags": []
+    },
     "my-angular-app": {
       "tags": []
     },

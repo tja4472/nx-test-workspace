@@ -1,4 +1,4 @@
-import { firebaseConfigProd } from '../app/firebase/firebase-config-prod';
+import { firebaseConfigProd } from '@nx-test-workspace/app-firebase';
 
 import { Environment } from './environment-types';
 

@@ -1,4 +1,4 @@
-import { FirebaseConfig } from '../app/firebase/firebase-config-interface';
+import { FirebaseConfig } from '@nx-test-workspace/app-firebase';
 
 type UseEmulatorArguments = [string, number];
 
