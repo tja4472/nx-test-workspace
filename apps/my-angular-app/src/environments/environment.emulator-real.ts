@@ -1,4 +1,4 @@
-import { firebaseConfigDev } from '@nx-test-workspace/app-firebase';
+import { firebaseConfigDev } from '@nx-test-workspace/library-firebase';
 
 import { Environment } from './environment-types';
 

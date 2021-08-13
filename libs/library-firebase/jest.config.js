@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'app-firebase',
+  displayName: 'library-firebase',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/libs/app-firebase',
+  coverageDirectory: '../../coverage/libs/library-firebase',
   transform: {
     '^.+\\.(ts|js|html)$': 'jest-preset-angular',
   },

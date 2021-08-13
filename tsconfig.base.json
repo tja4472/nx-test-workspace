@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@nx-test-workspace/app-firebase": ["libs/app-firebase/src/index.ts"]
+      "@nx-test-workspace/library-firebase": [
+        "libs/library-firebase/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

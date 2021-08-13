@@ -3,6 +3,6 @@
 */
 !.gitignore
 
-!app-firebase.module.ts
+!library-firebase.module.ts
 !firebase-config-emulator-demo.ts
 !firebase-config-interface.ts
