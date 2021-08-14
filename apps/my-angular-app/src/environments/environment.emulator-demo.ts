@@ -1,4 +1,4 @@
-import { firebaseConfigEmulatorDemo } from '@nx-test-workspace/app-firebase';
+import { firebaseConfigEmulatorDemo } from '@nx-test-workspace/library-firebase';
 import { Environment } from './environment-types';
 
 export const environment: Environment = {

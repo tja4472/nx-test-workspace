@@ -75,7 +75,7 @@
     "eslint": "7.22.0",
     "eslint-config-prettier": "8.1.0",
     "eslint-plugin-cypress": "^2.10.3",
-    "firebase-tools": "9.16.2",
+    "firebase-tools": "9.16.5",
     "jest": "27.0.3",
     "jest-preset-angular": "9.0.4",
     "prettier": "^2.3.1",
