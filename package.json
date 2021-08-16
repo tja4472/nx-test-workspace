@@ -9,6 +9,7 @@
   "scripts": {
     "=== emulators ===": "",
     "emulators:start-demo": "firebase emulators:start --project demo-1",
+    "emulators:start-real": "firebase emulators:start",    
     "=== my-angular-app-e2e ==": "",
     "my-angular-app-e2e:emulate-demo": "cross-env FIRESTORE_EMULATOR_HOST=\"localhost:8080\" FIREBASE_AUTH_EMULATOR_HOST=\"localhost:9099\" CYPRESS_USE_DEMO_PROJECT=\"true\" GCLOUD_PROJECT=\"demo-1\" ng e2e --watch -c emulator-demo",
     "my-angular-app-e2e:emulate-demo:running": "npm run cypress:emulate-demo -- --baseUrl=http://localhost:4200 --devServerTarget=''",
