@@ -8,19 +8,18 @@
 // https://on.cypress.io/custom-commands
 // ***********************************************
 
-// eslint-disable-next-line @typescript-eslint/no-namespace
-declare namespace Cypress {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface Chainable<Subject> {
-    login(email: string, password: string): void;
-  }
-}
+// https://github.com/tickist/tickist-app/blob/master/apps/tickist-web-e2e/src/support/commands.ts
+
+
+
+
+
 //
 // -- This is a parent command --
-Cypress.Commands.add('login', (email, password) => {
+Cypress.Commands.add('loginAAA', (email, password) => {
   console.log('Custom command example: Login', email, password);
 });
-//
+
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
 //
@@ -31,3 +30,82 @@ Cypress.Commands.add('login', (email, password) => {
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+// https://github.com/cypress-io/cypress-realworld-app/blob/develop/cypress/support/commands.ts
+Cypress.Commands.add('getBySel', (selector, ...args) => {
+  return cy.get(`[data-test=${selector}]`, ...args);
+});
+
+Cypress.Commands.add('getBySelLike', (selector, ...args) => {
+  return cy.get(`[data-test*=${selector}]`, ...args);
+});
+
+import {
+  firebaseConfigDev,
+  FirebaseConfig,
+  firebaseConfigEmulatorDemo,
+} from '@nx-test-workspace/library-firebase';
+
+
+import { attachCustomCommands } from 'cypress-firebase/lib';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
+import 'firebase/firestore';
+
+const cypressUseDemoProject = Cypress.env('USE_DEMO_PROJECT');
+console.log('cypressUseDemoProject: ', cypressUseDemoProject);
+
+var firebaseConfig: FirebaseConfig;
+
+if (cypressUseDemoProject) {
+  firebaseConfig = firebaseConfigEmulatorDemo;
+} else {
+  firebaseConfig = firebaseConfigDev;
+}
+
+console.log('apiKey:', firebaseConfig.apiKey);
+const fbInstance = firebase.initializeApp(firebaseConfig);
+if (fbInstance) {
+    (window as any).fbInstance = fbInstance
+}
+
+// firebase.initializeApp(firebaseConfig);
+
+// const fbInstance = firebase.initializeApp(firebaseConfig);
+/* ok
+  const fbInstance = firebase.initializeApp({ apiKey: 'AIzaSyCM95TN-IRTj0QCl2xUwNr7Q-LBzfzsT1Y',
+   projectId: 'demo-1'});
+  */
+/*
+  const fbInstance = firebase.initializeApp({
+    apiKey: 'demo-1-key',
+    projectId: 'demo-1',
+  });
+  */
+
+const firestoreEmulatorHost = Cypress.env('FIRESTORE_EMULATOR_HOST');
+
+if (firestoreEmulatorHost) {
+  console.log('firestoreEmulatorHost');
+  /*
+    firebase.firestore().settings({
+      host: 'localhost:8080',
+      ssl: false,
+      // experimentalForceLongPolling: true,
+    });
+  */
+  firebase.firestore().useEmulator('localhost', 8080);
+}
+
+/*
+  if (fbInstance) {
+    (window as any).fbInstance = fbInstance;
+  }
+  */
+const authEmulatorHost = Cypress.env('FIREBASE_AUTH_EMULATOR_HOST');
+if (authEmulatorHost) {
+  firebase.auth().useEmulator(`http://${authEmulatorHost}/`);
+  console.log(`Using Auth emulator: http://${authEmulatorHost}/`);
+}
+
+attachCustomCommands({ Cypress, cy, firebase });

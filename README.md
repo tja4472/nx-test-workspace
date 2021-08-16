@@ -1,4 +1,35 @@
+- [Scripts](#scripts)
+  - [emulators](#emulators)
+  - [my-angular-app-e2e](#my-angular-app-e2e)
+- [NxTestWorkspace](#nxtestworkspace)
+  - [Quick Start & Documentation](#quick-start--documentation)
+  - [Adding capabilities to your workspace](#adding-capabilities-to-your-workspace)
+  - [Generate an application](#generate-an-application)
+  - [Generate a library](#generate-a-library)
+  - [Development server](#development-server)
+  - [Code scaffolding](#code-scaffolding)
+  - [Build](#build)
+  - [Running unit tests](#running-unit-tests)
+  - [Running end-to-end tests](#running-end-to-end-tests)
+  - [Understand your workspace](#understand-your-workspace)
+  - [Further help](#further-help)
+  - [☁ Nx Cloud](#-nx-cloud)
+    - [Distributed Computation Caching & Distributed Task Execution](#distributed-computation-caching--distributed-task-execution)
 
+# Scripts
+
+## emulators
+
+|                      |                                                                |
+| :------------------- | :------------------------------------------------------------- |
+| emulators:start-demo | Starts the auth and firestore emulators using the demo project |
+
+## my-angular-app-e2e
+
+|                                         |                                                                                                                  |
+| :-------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
+| my-angular-app-e2e:emulate-demo         | Builds and runs `my-angular-app` using the `emulate-demo` configuration and opens the Cypress Test Runner        |
+| my-angular-app-e2e:emulate-demo:running | Opens the Cypress Test Runner using the `emulate-demo` configuration using the `http://localhost:4200 ` base Url |
 
 # NxTestWorkspace
 
@@ -86,11 +117,6 @@ Run `nx dep-graph` to see a diagram of the dependencies of your projects.
 ## Further help
 
 Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-
-
-
-
 
 ## ☁ Nx Cloud
 
