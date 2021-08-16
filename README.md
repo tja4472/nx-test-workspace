@@ -1,5 +1,6 @@
 - [1. Scripts](#1-scripts)
   - [1.1. emulators](#11-emulators)
+    - [1.1.1. emulators:start-demo](#111-emulatorsstart-demo)
   - [1.2. my-angular-app-e2e](#12-my-angular-app-e2e)
     - [1.2.1. my-angular-app-e2e:emulate-demo](#121-my-angular-app-e2eemulate-demo)
 - [2. NxTestWorkspace](#2-nxtestworkspace)
@@ -21,6 +22,10 @@
 
 ## 1.1. emulators
 
+### 1.1.1. emulators:start-demo
+
+Starts the auth and firestore emulators using the demo project.
+
 |                      |                                                                |
 | :------------------- | :------------------------------------------------------------- |
 | emulators:start-demo | Starts the auth and firestore emulators using the demo project |
@@ -29,7 +34,7 @@
 
 ### 1.2.1. my-angular-app-e2e:emulate-demo
 
-    Builds and runs `my-angular-app` using the `emulate-demo` configuration and opens the Cypress Test Runner.
+Builds and runs `my-angular-app` using the `emulate-demo` configuration and opens the Cypress Test Runner.
 
 |                                         |                                                                                                                  |
 | :-------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
