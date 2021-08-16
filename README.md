@@ -1,6 +1,7 @@
 - [1. Scripts](#1-scripts)
   - [1.1. emulators](#11-emulators)
     - [1.1.1. emulators:start-demo](#111-emulatorsstart-demo)
+    - [1.1.2. emulators:start-real](#112-emulatorsstart-real)
   - [1.2. my-angular-app-e2e](#12-my-angular-app-e2e)
     - [1.2.1. my-angular-app-e2e:emulate-demo](#121-my-angular-app-e2eemulate-demo)
     - [1.2.2. my-angular-app-e2e:emulate-demo:running](#122-my-angular-app-e2eemulate-demorunning)
@@ -26,6 +27,10 @@
 ### 1.1.1. emulators:start-demo
 
 Starts the auth and firestore emulators using the demo project.
+
+### 1.1.2. emulators:start-real
+
+Starts the auth and firestore emulators using the real project.
 
 ## 1.2. my-angular-app-e2e
 
