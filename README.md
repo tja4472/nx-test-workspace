@@ -3,6 +3,7 @@
     - [1.1.1. emulators:start-demo](#111-emulatorsstart-demo)
   - [1.2. my-angular-app-e2e](#12-my-angular-app-e2e)
     - [1.2.1. my-angular-app-e2e:emulate-demo](#121-my-angular-app-e2eemulate-demo)
+    - [1.2.2. my-angular-app-e2e:emulate-demo:running](#122-my-angular-app-e2eemulate-demorunning)
 - [2. NxTestWorkspace](#2-nxtestworkspace)
   - [2.1. Quick Start & Documentation](#21-quick-start--documentation)
   - [2.2. Adding capabilities to your workspace](#22-adding-capabilities-to-your-workspace)
@@ -26,20 +27,15 @@
 
 Starts the auth and firestore emulators using the demo project.
 
-|                      |                                                                |
-| :------------------- | :------------------------------------------------------------- |
-| emulators:start-demo | Starts the auth and firestore emulators using the demo project |
-
 ## 1.2. my-angular-app-e2e
 
 ### 1.2.1. my-angular-app-e2e:emulate-demo
 
 Builds and runs `my-angular-app` using the `emulate-demo` configuration and opens the Cypress Test Runner.
 
-|                                         |                                                                                                                  |
-| :-------------------------------------- | :--------------------------------------------------------------------------------------------------------------- |
-| my-angular-app-e2e:emulate-demo         | Builds and runs `my-angular-app` using the `emulate-demo` configuration and opens the Cypress Test Runner        |
-| my-angular-app-e2e:emulate-demo:running | Opens the Cypress Test Runner using the `emulate-demo` configuration using the `http://localhost:4200 ` base Url |
+### 1.2.2. my-angular-app-e2e:emulate-demo:running
+
+Opens the Cypress Test Runner using the `emulate-demo` configuration using the `http://localhost:4200 ` base Url.
 
 # 2. NxTestWorkspace
 
