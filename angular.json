@@ -153,12 +153,15 @@
             "devServerTarget": "my-angular-app:serve:development"
           },
           "configurations": {
+            "development": {
+              "devServerTarget": "my-angular-app:serve:development"
+            },
             "emulator-demo": {
-                "devServerTarget": "my-angular-app:serve:emulator-demo"
-            },    
+              "devServerTarget": "my-angular-app:serve:emulator-demo"
+            },
             "emulator-real": {
-                "devServerTarget": "my-angular-app:serve:emulator-real"
-            },                       
+              "devServerTarget": "my-angular-app:serve:emulator-real"
+            },
             "production": {
               "devServerTarget": "my-angular-app:serve:production"
             }
