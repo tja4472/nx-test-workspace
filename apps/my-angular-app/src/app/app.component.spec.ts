@@ -1,10 +1,12 @@
 import { TestBed } from '@angular/core/testing';
+import { AppFirebaseModule } from './app-firebase.module';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [AppComponent],
+      imports: [AppFirebaseModule],
     }).compileComponents();
   });
 
@@ -25,7 +27,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('h1')?.textContent).toContain(
-      'Welcome to my-angular-app!'
+      'Welcome to ng-angularfire-testbed'
     );
   });
 });
