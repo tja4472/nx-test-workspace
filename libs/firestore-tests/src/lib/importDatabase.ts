@@ -9,11 +9,17 @@ function omit(key: any, obj: any) {
 
 const isObject = (obj: any) => obj === Object(obj);
 
+function isCollection(fieldName: string): boolean {
+  return fieldName.substr(0, 2) === '__';
+}
+
 export function removeCollections(fields: Object) {
   let result = fields;
 
   for (const [field, v] of Object.entries(fields)) {
-    if (isObject(v)) {
+    // console.log('A>', field);
+
+    if (isCollection(field)) {
       result = omit(field, result);
     }
   }
@@ -24,19 +30,27 @@ export function removeCollections(fields: Object) {
 type SaveFunction = (documentPath: string, objectToSave: object) => void;
 
 function processCollection(
-  collectionPath: string,
+  parentPath: string,
+  collectionName: string,
   collection: Collection<Object>,
   saveFn: SaveFunction
 ) {
+  const dbCollectionName = collectionName.substr(2);
+
   for (const [document, fieldsOrCollections] of Object.entries(collection)) {
-    const documentPath = `${collectionPath}/${document}`;
+    const documentPath = `${dbCollectionName}/${document}`;
 
     const objectToSave = removeCollections(fieldsOrCollections);
-    saveFn(documentPath, objectToSave);
+    saveFn(`${parentPath}/${documentPath}`, objectToSave);
 
     for (const [fieldName, v] of Object.entries(fieldsOrCollections)) {
-      if (isObject(v)) {
-        processCollection(`${documentPath}/${fieldName}`, v, saveFn);
+      if (isCollection(fieldName)) {
+        processCollection(
+          `${parentPath}/${documentPath}`,
+          fieldName,
+          v,
+          saveFn
+        );
       }
     }
   }
@@ -49,6 +63,6 @@ export function importDatabase(
   saveFn: SaveFunction
 ) {
   for (const [collectionName, collection] of Object.entries(database)) {
-    processCollection(collectionName, collection, saveFn);
+    processCollection('', collectionName, collection, saveFn);
   }
 }

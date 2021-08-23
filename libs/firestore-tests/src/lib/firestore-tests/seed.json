@@ -1,0 +1,14 @@
+{
+  "rows/foo": {
+    "owner": "kato",
+    "score": 10
+  },
+  "rows/bar": {
+    "owner": "puf",
+    "score": 20
+  },
+  "collA/docA/collB/docB": {
+      "field1": "hello",
+      "field2": "mum"
+  }
+}

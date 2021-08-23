@@ -1,6 +1,31 @@
 {
   "version": 1,
   "projects": {
+    "firestore-tests": {
+      "projectType": "library",
+      "root": "libs/firestore-tests",
+      "sourceRoot": "libs/firestore-tests/src",
+      "prefix": "nx-test-workspace",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/firestore-tests"],
+          "options": {
+            "jestConfig": "libs/firestore-tests/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/firestore-tests/src/**/*.ts",
+              "libs/firestore-tests/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "library-firebase": {
       "projectType": "library",
       "root": "libs/library-firebase",
