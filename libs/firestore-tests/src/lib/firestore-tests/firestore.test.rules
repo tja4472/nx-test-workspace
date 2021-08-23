@@ -1,5 +1,14 @@
 rules_version = '2';
 service cloud.firestore {
+     function isAuthenticated() {
+       return request.auth.uid != null
+     }
+    
+     function isKnownUser() {
+     	return isAuthenticated() && 
+       	exists( /databases/$(database)/documents/users/$(request.auth.uid) );
+    }
+
     match /databases/{database}/documents {   
         // Deny read/write access to all users under any conditions
         match /{document=**} {
