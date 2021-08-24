@@ -10,8 +10,9 @@ import { Collection, importDatabase } from '../../importDatabase';
 import * as firebase from '@firebase/rules-unit-testing';
 import * as fs from 'fs';
 
+
 // projectId should match the project used by the emulator
-// if you wish to use the console.
+// if you wish to use the Emulator UI.
 const PROJECT_ID = 'demo-1';
 
 const rules = fs.readFileSync(__dirname + '/firestore.rules', 'utf8');
