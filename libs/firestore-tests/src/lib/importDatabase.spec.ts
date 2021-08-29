@@ -40,6 +40,7 @@ type Database = {
 };
 
 const Database: Database = {
+  // Collections prefixed by '__'.
   __collectionA: {
     documentA1: {
       doc_A_field1: 'field1-A1',
@@ -90,7 +91,7 @@ const Database: Database = {
 describe('test1', () => {
   it('test database', async () => {
     const mockSaveFn = jest.fn();
-    importDatabase(Database, mockSaveFn);
+    await importDatabase(Database, mockSaveFn);
     expect(mockSaveFn.mock.calls.length).toBe(7);
 
     {

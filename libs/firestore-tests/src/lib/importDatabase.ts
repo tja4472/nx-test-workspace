@@ -27,9 +27,12 @@ export function removeCollections(fields: Object) {
   return result;
 }
 
-type SaveFunction = (documentPath: string, objectToSave: object) => void;
+export type SaveFunction = (
+  documentPath: string,
+  objectToSave: object
+) => Promise<void>;
 
-function processCollection(
+async function processCollection(
   parentPath: string,
   collectionName: string,
   collection: Collection<Object>,
@@ -41,11 +44,11 @@ function processCollection(
     const documentPath = `${dbCollectionName}/${document}`;
 
     const objectToSave = removeCollections(fieldsOrCollections);
-    saveFn(`${parentPath}/${documentPath}`, objectToSave);
+    await saveFn(`${parentPath}/${documentPath}`, objectToSave);
 
     for (const [fieldName, v] of Object.entries(fieldsOrCollections)) {
       if (isCollection(fieldName)) {
-        processCollection(
+        await processCollection(
           `${parentPath}/${documentPath}`,
           fieldName,
           v,
@@ -56,13 +59,13 @@ function processCollection(
   }
 }
 
-export function importDatabase(
+export async function importDatabase(
   database: {
     [key: string]: Collection<Object>;
   },
   saveFn: SaveFunction
 ) {
   for (const [collectionName, collection] of Object.entries(database)) {
-    processCollection('', collectionName, collection, saveFn);
+    await processCollection('', collectionName, collection, saveFn);
   }
 }
