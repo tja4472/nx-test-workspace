@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
 import {
   AngularFirestoreModule,
   SETTINGS as FIRESTORE_SETTINGS,
   USE_EMULATOR as USE_FIRESTORE_EMULATOR,
-} from '@angular/fire/firestore';
+} from '@angular/fire/compat/firestore';
 
 import { environment } from '../environments/environment';
 
@@ -24,6 +24,15 @@ import { environment } from '../environments/environment';
   ],
   // exports: [AngularFireModule, AngularFireAuthModule],
   // providers: [ScreenTrackingService, UserTrackingService],
+
+/*  
+  providers: [
+    // ... Existing Providers
+    { provide: USE_AUTH_EMULATOR, useValue: ['http://localhost:9099'] },    
+    { provide: USE_FIRESTORE_EMULATOR, useValue:  ['localhost', 8080]  },
+  ] 
+*/  
+  
   providers: [
     {
       provide: FIRESTORE_SETTINGS,
@@ -38,5 +47,6 @@ import { environment } from '../environments/environment';
       useValue: environment.firebase.emulators?.firestore,
     },
   ],
+ 
 })
 export class AppFirebaseModule {}

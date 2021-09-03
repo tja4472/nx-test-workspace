@@ -3,13 +3,13 @@
  *
  * Required for Firebase
  */
-import { AngularFireModule, FirebaseApp } from '@angular/fire';
+import { AngularFireModule, FirebaseApp } from '@angular/fire/compat';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
   AngularFirestoreModule,
   SETTINGS,
-} from '@angular/fire/firestore';
+} from '@angular/fire/compat/firestore';
 import { TestBed } from '@angular/core/testing';
 
 //import admin = require("firebase-admin");
@@ -19,8 +19,8 @@ import * as admin from 'firebase-admin';
 import { AuthenticationService } from './authentication.service';
 
 import { environment } from '../../environments/environment.emulator-demo';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { USE_EMULATOR as USE_AUTH_EMULATOR } from '@angular/fire/compat/auth';
 
 describe('AngularFirestore', () => {
   let app: FirebaseApp;

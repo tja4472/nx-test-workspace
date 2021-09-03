@@ -3,10 +3,10 @@
  *
  * Required for Firebase
  */
-import { AngularFireModule, FirebaseApp } from '@angular/fire';
+import { AngularFireModule, FirebaseApp } from '@angular/fire/compat';
 import {
   AngularFirestore,
-} from '@angular/fire/firestore';
+} from '@angular/fire/compat/firestore';
 import { TestBed } from '@angular/core/testing';
 import { environment as demoEnvironment } from '../../../environments/environment.emulator-demo';
 import * as admin from 'firebase-admin';
