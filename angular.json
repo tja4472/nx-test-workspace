@@ -22,7 +22,8 @@
               "libs/firestore-tests/src/**/*.ts",
               "libs/firestore-tests/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -47,7 +48,8 @@
               "libs/library-firebase/src/**/*.ts",
               "libs/library-firebase/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     },
@@ -153,7 +155,8 @@
               "apps/my-angular-app/src/**/*.ts",
               "apps/my-angular-app/src/**/*.html"
             ]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -196,7 +199,8 @@
           "builder": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": ["apps/my-angular-app-e2e/**/*.{js,ts}"]
-          }
+          },
+          "outputs": ["{options.outputFile}"]
         }
       }
     }
