@@ -58,8 +58,7 @@
     "@angular/platform-browser-dynamic": "12.2.4",
     "@angular/router": "12.2.4",
     "@nrwl/angular": "12.9.0",
-    "firebase": "9.0.1",
-    "rxfire": "6.0.1",
+    "firebase": "9.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
