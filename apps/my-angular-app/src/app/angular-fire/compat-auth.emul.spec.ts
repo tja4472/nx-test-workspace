@@ -10,16 +10,25 @@ import {
   AngularFireAuth,
   AngularFireAuthModule,
 } from '@angular/fire/compat/auth';
+import {
+  AngularFirestore,
+  AngularFirestoreModule,
+} from '@angular/fire/compat/firestore';
 
 import * as admin from 'firebase-admin';
 
 import { FirebaseError } from '@angular/fire/app';
 
-import { clearUserAccounts } from '../emulator/emulator-helpers';
+import { clearDatabase, clearUserAccounts } from '../emulator/emulator-helpers';
 import { EmulatorInfo } from '../emulator/emulator-info';
 
 describe('AngularFireCompatAuth', () => {
   let app: FirebaseApp;
+
+  beforeEach(async () => {
+    await clearUserAccounts('demo-1');
+    await clearDatabase('demo-1');
+  });
 
   afterEach(() => {
     app.delete().catch(() => undefined);
@@ -33,12 +42,15 @@ describe('AngularFireCompatAuth', () => {
           projectId: 'demo-1',
         }),
         AngularFireAuthModule,
+        AngularFirestoreModule,
       ],
     });
 
     app = TestBed.inject(FirebaseApp);
     const afAuth = TestBed.inject(AngularFireAuth);
     afAuth.useEmulator(EmulatorInfo.auth.useEmulatorUrl);
+    const afFirestore = TestBed.inject(AngularFirestore);
+    afFirestore.firestore.useEmulator('localhost', 8080);
 
     // The Firebase Admin SDK automatically connects to the Authentication emulator when the FIREBASE_AUTH_EMULATOR_HOST environment variable is set.
     // https://firebase.google.com/docs/emulator-suite/connect_auth
@@ -51,8 +63,6 @@ describe('AngularFireCompatAuth', () => {
 
     admin.initializeApp({ projectId: 'demo-1' });
 
-    const result = await clearUserAccounts('demo-1');
-
     expect.hasAssertions();
 
     try {
@@ -60,7 +70,7 @@ describe('AngularFireCompatAuth', () => {
         'test@test.example',
         'passwordAAA'
       );
-    } catch (e: any) {
+    } catch (e: unknown) {
       expect(e).toBeInstanceOf(FirebaseError);
       const { code, message, name } = e as FirebaseError;
       expect(code).toBe('auth/user-not-found');
@@ -69,5 +79,18 @@ describe('AngularFireCompatAuth', () => {
       );
       expect(name).toBe('FirebaseError');
     }
+
+    interface Item {
+      name: string;
+      price: number;
+    }
+
+    const shirtsCollection = afFirestore.collection<Item>('tshirts');
+    const addedDoc = await shirtsCollection.add({ name: 'item', price: 10 });
+
+    const actualDoc = await shirtsCollection.doc(addedDoc.id).ref.get();
+    const expectedDoc: Item = { name: 'item', price: 10 };
+
+    expect(actualDoc.data()).toEqual(expectedDoc);
   });
 });
