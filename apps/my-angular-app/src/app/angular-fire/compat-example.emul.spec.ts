@@ -22,7 +22,7 @@ import { FirebaseError } from '@angular/fire/app';
 import { clearDatabase, clearUserAccounts } from '../emulator/emulator-helpers';
 import { EmulatorInfo } from '../emulator/emulator-info';
 
-describe('AngularFireCompatAuth', () => {
+describe('AngularFireCompat example', () => {
   let app: FirebaseApp;
 
   beforeEach(async () => {
@@ -34,7 +34,7 @@ describe('AngularFireCompatAuth', () => {
     app.delete().catch(() => undefined);
   });
 
-  it('signInWithEmailAndPassword auth/user-not-found', async () => {
+  it('auth and firestore', async () => {
     TestBed.configureTestingModule({
       imports: [
         AngularFireModule.initializeApp({
