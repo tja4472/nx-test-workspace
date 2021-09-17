@@ -22,6 +22,7 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
+    "test-all": "nx run-many --all --target=test",
     "testA": "ng test --test-path-pattern=.*.emul.spec",
     "testAA": "ng test --test-path-pattern=emul.spec",
     "testB": "ng test --testMatch '**/+(*.)+(specA|test|emul).+(ts|js)?(x)'",
