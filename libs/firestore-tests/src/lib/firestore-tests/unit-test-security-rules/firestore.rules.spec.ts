@@ -2,6 +2,8 @@
  * @jest-environment node
  *
  * Required for Firebase
+ * 
+ * @group emulator-required
  */
 // Based on https://github.com/firebase/quickstart-testing
 

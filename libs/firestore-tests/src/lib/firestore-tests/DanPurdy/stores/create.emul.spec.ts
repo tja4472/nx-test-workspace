@@ -2,11 +2,13 @@
  * @jest-environment node
  *
  * Required for Firebase
+ * 
+ * @group emulator-required
  */
 import { setup, teardown } from '../helpers';
 import { assertFails } from '@firebase/rules-unit-testing';
 
-describe('Store create rules', () => {
+describe('[EmulatorTest]: Store create rules', () => {
   afterAll(async () => {
     await teardown();
   });

@@ -2,6 +2,8 @@
  * @jest-environment node
  *
  * Required for Firebase
+ * 
+ * @group emulator-required
  */
 
 import * as firebase from '@firebase/rules-unit-testing';

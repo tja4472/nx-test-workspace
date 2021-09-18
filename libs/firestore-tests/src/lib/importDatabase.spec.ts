@@ -2,6 +2,8 @@
  * @jest-environment node
  *
  * Required for Firebase
+ * 
+ * @group emulator-required
  */
 import { Collection, importDatabase } from './importDatabase';
 

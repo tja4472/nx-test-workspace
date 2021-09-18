@@ -2,6 +2,8 @@
  * @jest-environment node
  *
  * Required for Firebase
+ * 
+ * @group emulator-required
  */
 import { setup, teardown } from '../helpers';
 import { assertSucceeds } from '@firebase/rules-unit-testing';
@@ -46,7 +48,7 @@ describe('Stores read rules', () => {
     });
   });
 
-  describe('get', () => {
+  describe('[EmulatorTest]: get', () => {
     afterAll(async () => {
       await teardown();
     });

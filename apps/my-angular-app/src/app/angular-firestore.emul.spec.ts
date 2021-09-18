@@ -2,6 +2,8 @@
  * @jest-environment node
  *
  * Required for Firebase
+ * 
+ * @group emulator-required
  */
 import { AngularFireModule, FirebaseApp,  } from '@angular/fire/compat';
 import {

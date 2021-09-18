@@ -44,11 +44,18 @@ export class AuthenticationService {
     }
   }
 */
-  async signIn1(email: string, password: string) {
+  async signIn2(email: string, password: string) {
     const result = await this.afAuth.signInWithEmailAndPassword(
       email,
       password
     );
     return result;
   }
+
+  async signIn1(email: string, password: string) {
+    return await this.afAuth.signInWithEmailAndPassword(
+      email,
+      password
+    );
+  }  
 }
