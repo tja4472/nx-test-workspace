@@ -2,10 +2,172 @@
  * @jest-environment node
  *
  * Required for Firebase
- * 
- * @group emulator-required
+ *
  */
 import { Collection, importDatabase } from './importDatabase';
+
+import { expecter } from 'ts-snippet';
+
+describe('ts-snippet tests', () => {
+  const expectSnippet = expecter(
+    (code) => `
+      import { Collection, JSON, FirestoreDatabase, FirestoreField, FirestoreDocument, FirestoreCollection } from './libs/firestore-tests/src/lib/importDatabase';
+    
+      type Doc1 = {
+        f1: number;
+        f2: string;
+      };
+
+      ${code}
+    `
+  );
+
+  it('FirestoreField', () => {
+    expectSnippet(`
+    const f1: FirestoreField = 0;
+    const f2: FirestoreField = 'a';
+    const f3: FirestoreField = false;
+    const f4: FirestoreField = null;
+    const f5: FirestoreField = {
+        a: 0,
+        b: 'a',
+        c: true,
+        d: null,
+        e: {
+            a: 0,
+            b: 'a',
+            c: true,
+            d: null,            
+        }
+    };
+
+    `).toSucceed();
+  });
+
+  it('FirestoreDocument should fail [string]', () => {
+    expectSnippet(`
+        const j1:FirestoreDocument = 'a';   
+    `).toFail(/Type 'string' is not assignable to type 'FirestoreDocument'/);
+  });
+
+  it('FirestoreDocument should fail [number]', () => {
+    expectSnippet(`
+        const j1:FirestoreDocument = 1;   
+    `).toFail(/Type 'number' is not assignable to type 'FirestoreDocument'/);
+  });
+
+  it('FirestoreDocument should fail because of f1 in col2', () => {
+    expectSnippet(`
+    const d1:FirestoreDocument = {
+        col2: <FirestoreCollection>{
+            f1: 1,
+            doc1: {
+                f1: 1,
+                f2: 'a',                    
+            },
+            doc2: {
+                f1: 1,
+                f2: 'a',                    
+            },               
+        },
+    }; 
+    `).toFail(/Type 'number' is not comparable to type 'FirestoreDocument'/);
+  });
+
+  it('FirestoreDocument should succeed', () => {
+    expectSnippet(`
+        const d1:FirestoreDocument = {};  
+        const d2:FirestoreDocument = {
+            f1: 1,
+            f2: 'a',
+            col1: {},
+            col2: {
+                doc1: {
+                    f1: 1,
+                    f2: 'a',                    
+                },
+                doc2: {
+                    f1: 1,
+                    f2: 'a',                    
+                },               
+            },
+        };   
+    `).toSucceed();
+  });
+
+  it('FirestoreCollection should fail [string]', () => {
+    expectSnippet(`
+        const j1:FirestoreCollection = 'a';   
+    `).toFail(/Type 'string' is not assignable to type 'FirestoreCollection'/);
+  });
+
+  it('FirestoreCollection should fail [number, FirestoreDocument]', () => {
+    expectSnippet(`
+        const col2:FirestoreCollection = {
+                f1: 1,
+                doc1: {
+                    f1: 1,
+                    f2: 'a',                    
+                },               
+        };   
+    `).toFail(/Type 'number' is not assignable to type 'FirestoreDocument'/);
+  });
+
+  it('FirestoreCollection should succeed', () => {
+    expectSnippet(`
+        const col2:FirestoreCollection = {
+                doc1: {
+                    f1: 1,
+                    f2: 'a',                    
+                },
+                doc2: {
+                    f1: 1,
+                    f2: 'a',                    
+                },               
+        };   
+    `).toSucceed();
+  });
+
+  it('FirestoreDatabase should fail [string]', () => {
+    expectSnippet(`
+        const j1:FirestoreDatabase = 'a';   
+    `).toFail(/Type 'string' is not assignable to type 'FirestoreDatabase'/);
+  });
+
+  it('FirestoreDatabase should succeed', () => {
+    expectSnippet(`
+const database1: FirestoreDatabase = {
+  col1: <Collection<Doc1>>{
+    doc1: {
+      f1: 1,
+      f2: 'a',
+    },
+    doc2: {
+      f1: 1,
+      f2: 'a',
+    },
+  },
+};              
+    `).toSucceed();
+  });
+
+  it('FirestoreDatabase should fail [aaaaaa]', () => {
+    expectSnippet(`
+const database1: FirestoreDatabase = {
+  col1: <Collection<Doc1>>{
+    doc1: {
+      f1: 1,
+      f2a: 'a',
+    },
+    doc2: {
+      f1: 1,
+      f2: 'a',
+    },
+  },
+};              
+    `).toFail(/Property 'f2' is missing in type '{ f1: number; f2a: string; }' but required in type 'Doc1'./);
+  });
+});
 
 type DocumentA = {
   doc_A_field1: string;

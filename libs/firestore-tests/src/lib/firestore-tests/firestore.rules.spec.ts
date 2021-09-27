@@ -81,7 +81,7 @@ type user = {
     color: string;
     subject: string;
   };
-  age: Number;
+  age: number;
 };
 
 type Database = {
