@@ -1,0 +1,11 @@
+rules_version = '2';
+service cloud.firestore {
+  // Allow read/write access to all users under any conditions
+  // Warning: **NEVER** use this ruleset in production; it allows
+  // anyone to overwrite your entire database.    
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if true;
+    }         
+  }
+}
