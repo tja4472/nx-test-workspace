@@ -25,7 +25,8 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": []
     },
     "library-firebase": {
       "projectType": "library",
@@ -51,7 +52,8 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
+      },
+      "tags": []
     },
     "my-angular-app": {
       "projectType": "application",
@@ -166,7 +168,8 @@
             "passWithNoTests": true
           }
         }
-      }
+      },
+      "tags": []
     },
     "my-angular-app-e2e": {
       "root": "apps/my-angular-app-e2e",
@@ -202,38 +205,9 @@
           },
           "outputs": ["{options.outputFile}"]
         }
-      }
-    }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/angular"
-  },
-  "schematics": {
-    "@nrwl/angular": {
-      "application": {
-        "linter": "eslint"
       },
-      "library": {
-        "linter": "eslint"
-      },
-      "storybook-configuration": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/angular:application": {
-      "style": "css",
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
-    },
-    "@nrwl/angular:library": {
-      "style": "css",
-      "linter": "eslint",
-      "unitTestRunner": "jest"
-    },
-    "@nrwl/angular:component": {
-      "style": "css"
+      "tags": [],
+      "implicitDependencies": ["my-angular-app"]
     }
-  },
-  "defaultProject": "my-angular-app"
+  }
 }

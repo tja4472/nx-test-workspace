@@ -26,19 +26,35 @@
       }
     ]
   },
-  "projects": {
-    "firestore-tests": {
-      "tags": []
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "defaultProject": "my-angular-app",
+  "generators": {
+    "@nrwl/angular": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
     },
-    "library-firebase": {
-      "tags": []
+    "@nrwl/angular:application": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
     },
-    "my-angular-app": {
-      "tags": []
+    "@nrwl/angular:library": {
+      "style": "css",
+      "linter": "eslint",
+      "unitTestRunner": "jest"
     },
-    "my-angular-app-e2e": {
-      "tags": [],
-      "implicitDependencies": ["my-angular-app"]
+    "@nrwl/angular:component": {
+      "style": "css"
     }
   }
 }
